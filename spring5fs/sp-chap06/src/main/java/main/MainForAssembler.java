@@ -1,26 +1,16 @@
 package main;
 
 import assembler.Assembler;
-import config.AppConf1;
-import config.AppConf2;
-import config.AppConfImport;
-import config.AppCtx;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
-public class MainForSpring  {
-
-    private static ApplicationContext ctx;
+public class MainForAssembler {
 
     public static void main(String[] args) throws IOException {
-
-        ctx = new AnnotationConfigApplicationContext(AppConfImport.class);
-
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while (true){
             System.out.println("명령어를 입력하세요");
@@ -37,44 +27,12 @@ public class MainForSpring  {
             }else if(command.startsWith("change ")){
                 processChangeCommand(command.split(" "));
                 continue;
-            }else if(command.equals("list")){
-                processListCommand();
-                continue;
-            }else if(command.startsWith("select ")){
-                processSelectEmail(command.split(" "));
-                continue;
-            }else if (command.equals("version")){
-                processVersionCommand();
-                continue;
             }
             printHelp();
         }
     }
 
-    private static void processVersionCommand() {
-
-        VersionPrinter printer = ctx.getBean(VersionPrinter.class);
-
-        printer.print();
-    }
-
-    private static void processSelectEmail(String[] arg) {
-        if(arg.length != 2){
-            printHelp();
-            return;
-        }
-
-        MemberInfoPrinter printer = ctx.getBean(MemberInfoPrinter.class);
-        printer.printMemberInfo(arg[1]);
-    }
-
-    private static void processListCommand() {
-
-        MemberListPrinter printer = ctx.getBean(MemberListPrinter.class);
-        printer.printAll();
-
-    }
-
+    private static Assembler assembler = new Assembler();
 
     private static void processNewCommand(String[] arg){
         if(arg.length != 5){
@@ -82,7 +40,7 @@ public class MainForSpring  {
             return;
         }
 
-        MemberRegisterService regSvc = ctx.getBean(MemberRegisterService.class);
+        MemberRegisterService regSvc = assembler.getRegSvc();
         RegisterRequest req = new RegisterRequest();
         req.setEmail(arg[1]);
         req.setName(arg[2]);
@@ -108,7 +66,7 @@ public class MainForSpring  {
             return;
         }
 
-        ChangePasswordService changePwdSvc = ctx.getBean(ChangePasswordService.class);
+        ChangePasswordService changePwdSvc = assembler.getPwdSvc();
 
         try {
             changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
@@ -120,7 +78,7 @@ public class MainForSpring  {
         }
 
     }
-
+    
     private static void printHelp(){
         System.out.println();
         System.out.println("잘못된 명령입니다. 아래 명령어 사용법을 확인하세요");
@@ -129,6 +87,4 @@ public class MainForSpring  {
         System.out.println("change 이메일 현재비번 변경비번");
         System.out.println();
     }
-
-
 }
