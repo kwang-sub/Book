@@ -13,7 +13,7 @@ public class ExeTimeCalculator implements Calculator{
         long start = System.nanoTime();
         long result = delegate.factorial(num);
         long end = System.nanoTime();
-        System.out.println("ExeTimeCalculator : " + (end - start));
+        System.out.println(delegate.getClass().getSimpleName() + " : " + (end - start));
 
         return result;
     }
