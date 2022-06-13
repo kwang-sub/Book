@@ -56,4 +56,8 @@ public class Member {
                 ", registerDateTime=" + registerDateTime +
                 '}';
     }
+
+    public boolean matchPassword(String password) {
+        return this.password.equals(password);
+    }
 }
