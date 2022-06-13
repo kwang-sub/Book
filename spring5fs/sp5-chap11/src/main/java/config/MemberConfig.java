@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"spring", "controller"})
+@ComponentScan(basePackages = {"spring", "controller", "survey"})
 public class MemberConfig {
 
     @Bean(destroyMethod = "close")
