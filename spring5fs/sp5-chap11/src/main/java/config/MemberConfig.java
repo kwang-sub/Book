@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = {"spring", "controller", "survey"})
 public class MemberConfig {
 
+
     @Bean(destroyMethod = "close")
     public DataSource dataSource(){
         DataSource ds = new DataSource();

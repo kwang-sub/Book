@@ -2,6 +2,7 @@ package spring;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
@@ -10,6 +11,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -17,24 +19,26 @@ public class MemberDao {
 
     private JdbcTemplate jdbcTemplate;
 
+    private RowMapper<Member> memRowMapper = new RowMapper<Member>() {
+        @Override
+        public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Member member = new Member(
+                    rs.getString("EMAIL"),
+                    rs.getString("PASSWORD"),
+                    rs.getString("NAME"),
+                    rs.getTimestamp("REGDATE").toLocalDateTime());
+            member.setId(rs.getLong("ID"));
+            return member;
+        }
+    };
+
     public MemberDao(@Autowired DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     public Member selectByEmail(String email) {
         List<Member> results = jdbcTemplate.query("select * from MEMBER where EMAIL = ?",
-                new RowMapper<Member>() {
-                    @Override
-                    public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Member member = new Member(
-                                rs.getString("EMAIL"),
-                                rs.getString("PASSWORD"),
-                                rs.getString("NAME"),
-                                rs.getTimestamp("REGDATE").toLocalDateTime());
-                        member.setId(rs.getLong("ID"));
-                        return member;
-                    }
-                },email);
+                memRowMapper, email);
 
         return results.isEmpty() ? null : results.get(0);
     }
@@ -66,19 +70,7 @@ public class MemberDao {
     }
 
     public List<Member> selectAll() {
-        List<Member> results = jdbcTemplate.query("select * from MEMBER",
-                new RowMapper<Member>() {
-                    @Override
-                    public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-                        Member member = new Member(
-                                rs.getString("EMAIL"),
-                                rs.getString("PASSWORD"),
-                                rs.getString("NAME"),
-                                rs.getTimestamp("REGDATE").toLocalDateTime());
-                        member.setId(rs.getLong("ID"));
-                        return member;
-                    }
-                });
+        List<Member> results = jdbcTemplate.query("select * from MEMBER", memRowMapper);
         return results;
     }
 
@@ -86,5 +78,20 @@ public class MemberDao {
         Integer count = jdbcTemplate.queryForObject(
                 "select count(*) from MEMBER", Integer.class);
         return count;
+    }
+
+    public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to) {
+        List<Member> results = jdbcTemplate.query(
+                "select * from MEMBER where REGDATE between ? and ?" +
+                        "order by REGDATE desc",
+                memRowMapper, from, to);
+        return results;
+    }
+
+    public Member selectById(Long memId) {
+        List<Member> results = jdbcTemplate.query(
+                "select * from MEMBER where ID = ?",
+                memRowMapper, memId);
+        return results.isEmpty() ? null : results.get(0);
     }
 }

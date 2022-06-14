@@ -13,6 +13,6 @@
 </head>
 <body>
     <p><spring:message code="register.done" arguments="${formData.name}"/></p>
-    <p><a href="/main">[<spring:message code="go.main"/>]</a></p>
+    <p><a href="/">[<spring:message code="go.main"/>]</a></p>
 </body>
 </html>
