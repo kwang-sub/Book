@@ -81,9 +81,12 @@
 
 </div>
 <!-- /#wrapper -->
+<script th:inline="javascript">
+    var msg = [[${msg}]];
+    if(msg) {
+        $(".modal").modal();
+    }
 
-<!-- Menu Toggle Script -->
-<script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
