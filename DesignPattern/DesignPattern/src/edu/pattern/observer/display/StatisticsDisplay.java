@@ -26,8 +26,8 @@ public class StatisticsDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        data.add(temp);
+    public void update() {
+        data.add(weatherData.getTemperature());
         float sum = 0;
         for (float f : data) {
             if (min > f || min == 0) {
