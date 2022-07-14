@@ -1,6 +1,6 @@
 package edu.pattern.factorymethod.pizza.store;
 
-import edu.pattern.factorymethod.pizza.kind.Pizza;
+import edu.pattern.factorymethod.pizza.pizza.Pizza;
 
 public abstract class PizzaStore {
 
@@ -16,6 +16,4 @@ public abstract class PizzaStore {
     }
 
     protected abstract Pizza createPizza(String type);
-
-
 }

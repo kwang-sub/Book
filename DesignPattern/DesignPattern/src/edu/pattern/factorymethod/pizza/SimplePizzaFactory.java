@@ -1,10 +1,10 @@
 package edu.pattern.factorymethod.pizza;
 
-import edu.pattern.factorymethod.pizza.kind.*;
-import edu.pattern.factorymethod.pizza.kind.base.CheesePizza;
-import edu.pattern.factorymethod.pizza.kind.base.ClamPizza;
-import edu.pattern.factorymethod.pizza.kind.base.PepperoniPizza;
-import edu.pattern.factorymethod.pizza.kind.base.veggiePizza;
+import edu.pattern.factorymethod.pizza.pizza.*;
+import edu.pattern.factorymethod.pizza.pizza.base.CheesePizza;
+import edu.pattern.factorymethod.pizza.pizza.base.ClamPizza;
+import edu.pattern.factorymethod.pizza.pizza.base.PepperoniPizza;
+import edu.pattern.factorymethod.pizza.pizza.base.veggiePizza;
 
 public class SimplePizzaFactory {
 

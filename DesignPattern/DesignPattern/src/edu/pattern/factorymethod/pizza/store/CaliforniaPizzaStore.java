@@ -1,10 +1,10 @@
 package edu.pattern.factorymethod.pizza.store;
 
-import edu.pattern.factorymethod.pizza.kind.*;
-import edu.pattern.factorymethod.pizza.kind.ca.CaStyleCheesePizza;
-import edu.pattern.factorymethod.pizza.kind.ca.CaStyleClamPizza;
-import edu.pattern.factorymethod.pizza.kind.ca.CaStylePepperoniPizz;
-import edu.pattern.factorymethod.pizza.kind.ca.CaStyleVeggiePizza;
+import edu.pattern.factorymethod.pizza.pizza.*;
+import edu.pattern.factorymethod.pizza.pizza.ca.CaStyleCheesePizza;
+import edu.pattern.factorymethod.pizza.pizza.ca.CaStyleClamPizza;
+import edu.pattern.factorymethod.pizza.pizza.ca.CaStylePepperoniPizz;
+import edu.pattern.factorymethod.pizza.pizza.ca.CaStyleVeggiePizza;
 
 public class CaliforniaPizzaStore extends PizzaStore{
     @Override
