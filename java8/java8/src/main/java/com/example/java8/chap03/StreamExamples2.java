@@ -69,7 +69,7 @@ public class StreamExamples2 {
             return i > 10;
         });
         System.out.println(greaterThan10.get(0));
-
+        
     }
 
     private static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
