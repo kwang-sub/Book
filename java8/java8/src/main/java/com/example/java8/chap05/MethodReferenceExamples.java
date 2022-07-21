@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class MethodReferenceExamples {
@@ -35,6 +36,39 @@ public class MethodReferenceExamples {
                 .sorted(Comparator.comparing(Product::getPrice).reversed())
                 .collect(Collectors.toList());
         System.out.println(collect1);
+
+        System.out.println("========================");
+        methodReference03();
+        System.out.println(getDoubleThenToString().apply(3));
+        System.out.println(getDoubleThenToStringMethod().apply(3));
+
+        final List<Function<Integer, String>> fsL = Arrays.asList(
+          i -> String.valueOf( i * 2),
+          MethodReferenceExamples::doubleThenToString
+        );
+        System.out.println("List test");
+        for (Function<Integer, String> f : fsL) {
+            f.apply(2);
+        }
+    }
+
+    private static String doubleThenToString(int n) {
+        return String.valueOf(n * 2);
+    }
+
+    private static void methodReference03() {
+        System.out.println(testFirstClassFunction1(3, MethodReferenceExamples::doubleThenToString));
+    }
+    private static String testFirstClassFunction1(int n, Function<Integer, String> f) {
+        return "The result is " + f.apply(n);
+    }
+
+    private static Function<Integer, String> getDoubleThenToString() {
+        return i -> String.valueOf(i * 2);
+    }
+
+    private static Function<Integer, String> getDoubleThenToStringMethod() {
+        return MethodReferenceExamples::doubleThenToString;
     }
 }
 

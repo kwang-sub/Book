@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Data
-public class Product {
+public abstract class Product {
     private Long id;
     private String name;
     private BigDecimal price;
