@@ -5,45 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1214ba69-b2aa-4ec9-a2b0-5c0446a08292" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy-datasource.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/persistence-units.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/entity/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/entity/MemberEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/entity/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/entity/OrderItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/team/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/team/Team.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/team/TeamTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/model/util/OrderStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/start/ExamMergeMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/start/JpaMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/start/MemberMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/start/RoleType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/.jpb/persistence-units.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/EntityApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/entity/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/entity/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/entity/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/entity/OrderItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/pure/entity/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/pure/entity/Team.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/java/com/example/entity/model/util/OrderStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/test/java/com/example/entity/EntityApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../entity/src/test/java/com/example/entity/model/pure/entity/MemberTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,18 +56,19 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/workspace/Book/JPA/ch02-jpa-start1/src/main/java/jpabook/start&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/workspace/Book/JPA/ch02-jpa-start1/src/main/java/jpabook/start",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\workspace\Book\JPA\ch02-jpa-start1\src\main\java\jpabook\start" />
@@ -140,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661956121738</updated>
       <workItem from="1661956123059" duration="3825000" />
-      <workItem from="1662024769056" duration="2394000" />
+      <workItem from="1662024769056" duration="3419000" />
     </task>
     <servers />
   </component>

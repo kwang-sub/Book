@@ -1,17 +1,15 @@
-package jpabook.model;
+package com.example.chap04.model;
 
-import jpabook.model.start.Board;
-import jpabook.model.start.RoleType;
-import jpabook.model.start.TableSequences;
-import jpabook.model.start.User;
+import com.example.chap04.model.start.Board;
+import com.example.chap04.model.start.RoleType;
+import com.example.chap04.model.start.TableSequences;
+import com.example.chap04.model.start.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 /**
  * Created by 1001218 on 15. 4. 5..
@@ -65,6 +63,7 @@ public class Main {
         user1.setUsername("kwang");
         user1.setAge(10);
         user1.setDescription("테스트 회원입니다");
+        user1.setCreateDate(LocalDateTime.now());
         user1.setRoleType(RoleType.USER);
 //        영속성 컨텍스트에 관리되어야 자동 할당됨!
         System.out.println("id값 확인" + user1.getId());
