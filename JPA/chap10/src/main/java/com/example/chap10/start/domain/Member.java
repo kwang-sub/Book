@@ -16,6 +16,10 @@ import java.util.List;
         @NamedQuery(name = "Member.count",
                 query = "select count (m) from Member m")
 })
+@SqlResultSetMapping(name = "memberWithOrderCount",
+        entities = {@EntityResult(entityClass = Member.class)},
+        columns = {@ColumnResult(name = "ORDER_COUNT")}
+)
 public class Member {
 
     @Id @GeneratedValue
@@ -29,7 +33,7 @@ public class Member {
     private List<Order> orders = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "TEMA_ID")
+    @JoinColumn(name = "TEAM_ID")
     private Team team;
 
     public void setTeam(Team team) {
@@ -44,6 +48,7 @@ public class Member {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", orders=" + orders +
+                ", team=" + team.getName() +
                 '}';
     }
 }
