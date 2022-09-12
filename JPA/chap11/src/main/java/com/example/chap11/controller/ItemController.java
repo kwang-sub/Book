@@ -46,7 +46,9 @@ public class ItemController {
     }
 
     @PostMapping("/items/{itemId}/edit")
-    public String updateItem(Book item) {
+    public String updateItem(@PathVariable("itemId") Long itemId, Book item) {
+        item.setId(itemId);
+        System.out.println(item);
         itemService.saveItem(item);
         return "redirect:/items";
     }

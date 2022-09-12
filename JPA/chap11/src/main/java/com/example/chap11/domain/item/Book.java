@@ -3,7 +3,10 @@ package com.example.chap11.domain.item;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.Cacheable;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 

@@ -1,5 +1,6 @@
 package com.example.chap11.service;
 
+import com.example.chap11.datajpa.MemberRepository2;
 import com.example.chap11.domain.Delivery;
 import com.example.chap11.domain.Member;
 import com.example.chap11.domain.Order;
@@ -20,11 +21,11 @@ import java.util.List;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final MemberRepository memberRepository;
+    private final MemberRepository2 memberRepository;
     private final ItemService itemService;
 
     public Long order(Long memberId, Long itemId, int count) {
-        Member member = memberRepository.findOne(memberId);
+        Member member = memberRepository.findById(memberId).get();
         Item item = itemService.findOne(itemId);
 
         Delivery delivery = new Delivery(member.getAddress());
@@ -36,7 +37,7 @@ public class OrderService {
     }
 
     public void cancelOrder(Long orderId) {
-        Order order = orderRepository.findOne(orderId);
+        Order order = orderRepository.findById(orderId).get();
         order.cancel();
     }
 

@@ -1,9 +1,6 @@
 package com.example.chap11.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @ToString
 public class Member {
@@ -24,7 +22,7 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
     private List<Order> orders = new ArrayList<>();
 
     @Builder

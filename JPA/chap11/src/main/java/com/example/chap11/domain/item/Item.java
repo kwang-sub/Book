@@ -3,6 +3,7 @@ package com.example.chap11.domain.item;
 import com.example.chap11.domain.Category;
 import com.example.chap11.exception.NotEnoughStockException;
 import lombok.*;
+import org.hibernate.annotations.OptimisticLock;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 @DiscriminatorColumn(name = "DTYPE")
 @Getter
 @Setter
+@ToString
 public abstract class Item {
 
     @Id
@@ -23,6 +25,9 @@ public abstract class Item {
     private String name;
     private int price;
     private int stockQuantity;
+
+    @Version()
+    private Integer version;
 
     @ManyToMany
     private List<Category> categories = new ArrayList<>();

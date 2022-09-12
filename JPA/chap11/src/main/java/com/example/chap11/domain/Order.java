@@ -21,7 +21,7 @@ public class Order {
     private LocalDateTime orderDate;
     private OrderStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 

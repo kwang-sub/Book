@@ -1,5 +1,6 @@
 package com.example.chap11.service;
 
+import com.example.chap11.datajpa.MemberRepository2;
 import com.example.chap11.domain.Member;
 import com.example.chap11.exception.DuplicateMemberException;
 import com.example.chap11.repository.MemberRepository;
@@ -16,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private final MemberRepository memberRepository;
+    private final MemberRepository2 memberRepository;
 
     public Long join(Member member) {
         validateDuplicateMember(member);
@@ -25,9 +26,9 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        List<Member> findMembers = memberRepository.findByName(member.getName());
+        Member findMember = memberRepository.findByName(member.getName());
 
-        if (!findMembers.isEmpty()) {
+        if (findMember != null) {
             throw new DuplicateMemberException("이미 존재하는 회원입니다");
         }
     }
@@ -37,6 +38,6 @@ public class MemberService {
     }
 
     public Member findOne(Long memberId) {
-        return memberRepository.findOne(memberId);
+        return memberRepository.findById(memberId).orElse(null);
     }
 }
