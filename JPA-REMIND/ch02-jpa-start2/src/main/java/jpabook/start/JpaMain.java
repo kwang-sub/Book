@@ -18,7 +18,9 @@ public class JpaMain {
 
         try {
             tx.begin(); //트랜잭션 시작
-            logic(em);  //비즈니스 로직
+//            logic(em);  //비즈니스 로직
+//            logic1(em);
+            logic2(em);
             tx.commit();//트랜잭션 커밋
 
         } catch (Exception e) {
@@ -31,8 +33,35 @@ public class JpaMain {
         emf.close(); //엔티티 매니저 팩토리 종료
     }
 
-    public static void logic(EntityManager em) {
+    private static void logic2(EntityManager em) {
+        Member member1 = new Member();
+        member1.setId("member1");
+        member1.setAge(20);
+        em.persist(member1);
 
+        member1.setAge(10);
+
+        Member findMember = em.find(Member.class, "member1");
+        System.out.println("수정후 회원 찾기 = " + findMember);
+    }
+
+    //    쿼리 한번에 날아감(쓰기지연)
+    private static void logic1(EntityManager em) {
+        Member member1 = new Member();
+        member1.setId("member1");
+        member1.setAge(20);
+        em.persist(member1);
+        Member findMember1 = em.find(Member.class, "member1");
+        Member findMember2 = em.find(Member.class, "member3");
+        System.out.println("회원 찾기 = " + findMember1);
+        System.out.println("없는 회원 찾기 = " + findMember2);
+        Member member2 = new Member();
+        member2.setId("member2");
+        member2.setAge(20);
+        em.persist(member2);
+    }
+
+    public static void logic(EntityManager em) {
         String id = "id1";
         Member member = new Member();
         member.setId(id);
@@ -55,6 +84,5 @@ public class JpaMain {
 
         //삭제
         em.remove(member);
-
     }
 }
